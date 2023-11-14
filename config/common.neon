@@ -14,6 +14,9 @@ latte:
 session:
 	expiration: 14 days
 
+security:
+    users:
+        Eliška Moravcová: heslo
 
 di:
 	export:
