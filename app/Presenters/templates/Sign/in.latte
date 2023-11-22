@@ -1,5 +1,42 @@
 {block content}
 
-<h2 n:block=title>Přihlášení</h2>
+<div class="d-flex align-items-center justify-content-center" style="margin-top: 15%">
+    <div class="p-4 m-2 shadow rounded-2">
+        <div class="text-center">
+            <h2 n:block=title class="p-1">Přihlášení</h2>
+        </div>
 
-{control signInForm}
+        <form n:name=signInForm class="form">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="p-1">
+                            <label n:name=username>
+                                Jméno:
+                            </label>
+                        </th>
+                        <td class="p-1">
+                            <input n:name=username size=20 autofocus>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="p-1">
+                            <label n:name=password>
+                                Heslo:
+                            </label>
+                        </th>
+                        <td class="p-1">
+                            <input n:name=password size=20 autofocus>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="p-1"></th>
+                        <td class="p-3">
+                            <input class="button" type="submit" name="send" value="Přihlásit">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,5 +1,81 @@
 {block content}
 
-<h3>Nový příspěvek</h3>
-
-{control postForm}
+<div class="d-flex align-items-center justify-content-center" style="margin-top: 10%">
+    <div class="p-4 m-2 shadow rounded-2">
+        <div class="text-center">
+            <h2 n:block=title class="p-1">Nový příspěvek</h2>
+        </div>
+<!--
+        <div>
+            {control postForm}
+        </div>
+-->
+<!--
+        <form n:name=postForm class="form ">
+            <div>
+                <label n:name=title>
+                    Název díla:
+                    <input n:name=title size=20 autofocus>
+                </label>
+            </div>
+            <div>
+                <label n:name=description>
+                    Popis:
+                    <input n:name=description>
+                </label>
+            </div>
+            <div>
+                <label n:name=description>
+                    Popis:
+                    <input n:name=description>
+                </label>
+            </div>
+            <div>
+                <input n:name=send class="btn btn-default">
+            </div>
+        </form>
+-->
+        <form n:name=postForm class="form">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="p-1">
+                            <label n:name=title>
+                                Název díla:
+                            </label>
+                        </th>
+                        <td class="p-1">
+                            <input n:name=title size=20 autofocus>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="p-1">
+                            <label n:name=description>
+                                Popis:
+                            </label>
+                        </th>
+                        <td class="p-1">
+                            <textarea n:name=description></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label n:name=image class="p-1">
+                                Nahrát výtvor:
+                            </label>
+                        </th>
+                        <td class="p-1">
+                            <input n:name=image>
+                        </td>
+                    </tr>
+                    <tr class="p-1">
+                        <th class="p-1"></th>
+                        <td class="p-3">
+                            <input n:name=send class="button" type="submit" value="Nahrát příspěvek">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

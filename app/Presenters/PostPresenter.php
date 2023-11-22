@@ -6,6 +6,7 @@ namespace App\Presenters;
 
 use Nette;
 use Nette\Application\UI\Form;
+use Nette\Utils\Image;
 
 final class PostPresenter extends Nette\Application\UI\Presenter
 {
@@ -24,6 +25,5 @@ final class PostPresenter extends Nette\Application\UI\Presenter
         }
 
         $this->template->post = $post;
-        //$this->template->comments = $post->related('comment')->order('created_at');
     }
 }

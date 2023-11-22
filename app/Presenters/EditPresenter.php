@@ -7,6 +7,7 @@ namespace App\Presenters;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\FileSystem;
+use Nette\Http\FileUpload;
 
 final class EditPresenter extends Nette\Application\UI\Presenter
 {
@@ -43,10 +44,11 @@ final class EditPresenter extends Nette\Application\UI\Presenter
     protected function createComponentPostForm(): Form
     {
         $form = new Form;
-        $form->addText('title', 'Nadpis díla:')
-            ->setRequired();
+        $form->addText('title', 'Název díla:')
+            ->setRequired("Bez jména nelze příspěvek uložit.");
         $form->addTextArea('description', 'Popis:');
-        $form->addUpload('image', 'Nahrát výtvor');
+        $form->addUpload('image', 'Nahrát výtvor:')
+            ->setRequired("Bez obrázku nelze příspěvek uložit.");
 
         $form->addSubmit('send', 'Přidat příspěvek');
         $form->onSuccess[] = [$this, 'postFormSucceeded'];
