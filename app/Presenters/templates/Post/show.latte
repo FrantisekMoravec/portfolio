@@ -5,10 +5,12 @@
 <div class="container">
     <div class="row justify-content-center align-items-center">
         <div class="col-md-6">
-            <img src="{$basePath}/upload/{$post->image}" class="img-fluid">
+            <div class="d-flex align-items-center justify-content-center post-image-box">
+                <img src="{$basePath}/upload/{$post->image}" class="img-fluid post-image">
+            </div>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center p-3 post-description">
         <h4>{$post->description}</h4>
     </div>
 </div>

@@ -27,18 +27,20 @@ final class EditPresenter extends Nette\Application\UI\Presenter
         }
     }
 
-    public function renderPostEdit(int $postId): void
+    public function renderEdit(int $postId): void
     {
         $post = $this->database
             ->table('posts')
             ->get($postId);
 
         if (!$post) {
-            $this->error('Post not found');
+            $this->error('Příspěvek nebyl nelezen');
         }
 
         $this->getComponent('postForm')
             ->setDefaults($post->toArray());
+
+        $this->template->post = $post;
     }
 
     protected function createComponentPostForm(): Form
@@ -97,7 +99,7 @@ final class EditPresenter extends Nette\Application\UI\Presenter
         }
 
         $this->flashMessage('Příspěvek byl úspěšně publikován', 'success');
-        //TODO redirectnout na stránku admina
-        $this->redirect('Post:show', $post->id);
+
+        $this->redirect('Home:default');
     }
 }

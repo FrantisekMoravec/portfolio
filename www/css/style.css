@@ -6,7 +6,7 @@
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 1;
     opacity: 0;
-    transition: opacity 1.0s ease;
+    transition: opacity 0.8s ease;
 }
 
 .grid-item:hover .overlay {
@@ -34,7 +34,7 @@
     margin-top: 20px;
 }
 
-.grid-item a {
+.grid-item{
     margin: 0;
     padding: 0;
     gap: 0;
@@ -48,4 +48,26 @@
 .grid-item-div{
     padding: 0;
     margin: 0;
+}
+
+.post-image{
+    max-height: 70%;
+    margin-top: -30vh;
+}
+
+.post-image-box{
+    height: 100vh;
+}
+
+.post-description{
+    margin-top: -30vh
+}
+
+.form-image{
+    width: 16vw;
+    height: auto;
+}
+
+.edit-post-div{
+    margin-top: 5%;
 }

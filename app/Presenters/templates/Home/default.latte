@@ -3,12 +3,18 @@
 <div class="art-grid">
     <div n:foreach="$posts as $post">
         <div class="grid-item">
-            <a n:href="Post:show $post->id">
+            {if $user->isLoggedIn()}
+                <a n:href="Edit:edit $post->id">
+                    <h5 class="title">{$post->title}</h5>
+                    <img src="{$basePath}/upload/{$post->image}" class="grid-item-image">
 
-                <h5 class="title">{$post->title}</h5>
-                <img src="{$basePath}/upload/{$post->image}" class="grid-item-image">
-
-            </a>
+                </a>
+            {else}
+                <a n:href="Post:show $post->id">
+                    <h5 class="title">{$post->title}</h5>
+                    <img src="{$basePath}/upload/{$post->image}" class="grid-item-image">
+                </a>
+            {/if}
         </div>
     </div>
 </div>
