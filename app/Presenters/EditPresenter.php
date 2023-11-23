@@ -77,7 +77,8 @@ final class EditPresenter extends Nette\Application\UI\Presenter
             $post->update([
                 'title' => $data['title'],
                 'description' => $data['description'],
-                'image' => $nameOnDrive
+                'image' => $nameOnDrive,
+                'last_edited' => new \DateTime
             ]);
         } else {
             $upload = $data['image'];
