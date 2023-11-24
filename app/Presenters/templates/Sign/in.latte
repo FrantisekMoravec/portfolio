@@ -1,10 +1,9 @@
 {block content}
 
 <div class="d-flex align-items-center justify-content-center" style="margin-top: 15%">
-    <div class="p-4 m-2 shadow rounded-2">
-        <div class="text-center">
-            <h2 n:block=title class="p-1">Přihlášení</h2>
-        </div>
+    <div class="p-4 m-2 shadow rounded-2 text-center">
+
+        <h2 n:block=title class="p-1">Přihlášení</h2>
 
         <form n:name=signInForm class="form">
             <table>
@@ -29,14 +28,9 @@
                             <input n:name=password size=20 autofocus>
                         </td>
                     </tr>
-                    <tr>
-                        <th class="p-1"></th>
-                        <td class="p-3">
-                            <input class="button" type="submit" name="send" value="Přihlásit">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
+            <input class="button mt-2" type="submit" name="send" value="Přihlásit">
         </form>
     </div>
 </div>
