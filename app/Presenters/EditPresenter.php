@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
+use App\Model\PostFacade;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\FileSystem;
-use Nette\Http\FileUpload;
 
 final class EditPresenter extends Nette\Application\UI\Presenter
 {
     private Nette\Database\Explorer $database;
+    private PostFacade $facade;
 
-    public function __construct(Nette\Database\Explorer $database)
+    public function __construct(Nette\Database\Explorer $database, PostFacade $facade)
     {
         $this->database = $database;
+        $this->facade = $facade;
     }
 
     public function startup(): void
@@ -33,8 +35,22 @@ final class EditPresenter extends Nette\Application\UI\Presenter
             ->table('posts')
             ->get($postId);
 
+        $postCount = $this->facade
+            ->getPostCount();
+
         if (!$post) {
-            $this->error('Příspěvek nebyl nelezen');
+            if ($postId < 1){
+                $postId = $postCount;
+            }
+            if ($postId > $postCount){
+                $postId = 1;
+            }
+            $post = $this->database
+                ->table('posts')
+                ->get($postId);
+            if (!$post){
+                $this->error('Příspěvek nebyl nelezen');
+            }
         }
 
         $this->getComponent('postForm')
@@ -98,7 +114,7 @@ final class EditPresenter extends Nette\Application\UI\Presenter
                 ]);
         }
 
-        $this->flashMessage('Příspěvek byl úspěšně publikován', 'success');
+        $this->flashMessage('Příspěvek byl úspěšně publikován.', 'success');
 
         $this->redirect('Home:default');
     }

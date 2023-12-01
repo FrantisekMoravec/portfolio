@@ -1,58 +1,80 @@
 {block content}
 
-<div class="d-flex align-items-center justify-content-center edit-post-div">
-    <div class="p-4 m-2 shadow rounded-2">
-        <div class="text-center">
-            <h2 n:block=title class="p-1">Úprava příspěvku</h2>
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+            <a n:href="Edit:edit $post->id-1" style="position: fixed" class="start-0">
+                <img src="{$basePath}/icons/arrow.svg" class="left-arrow" style="width: 4vw; margin-top: 40vh; margin-left: 5vw; transform: rotate(180deg);">
+            </a>
         </div>
-        <form n:name=postForm class="form">
-            <table>
-                <tbody>
-                    <tr>
-                        <th class="p-1">
-                            <label n:name=title>
-                                Název díla:
-                            </label>
-                        </th>
-                        <td class="p-1">
-                            <input n:name=title size=20 autofocus>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="p-1">
-                            <label n:name=description>
-                                Popis:
-                            </label>
-                        </th>
-                        <td class="p-1 form-ta">
-                            <textarea n:name=description></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <label class="p-1">
-                                Původní obrázek:
-                            </label>
-                        </th>
-                        <td class="p-1">
-                            <img src="{$basePath}/upload/{$post->image}" class="form-image">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <label n:name=image class="p-1">
-                                Nový obrázek:
-                            </label>
-                        </th>
-                        <td class="p-1">
-                            <input n:name=image>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="text-center mt-3">
-                <input n:name=send class="button" type="submit" value="Upravit příspěvek">
+
+        <div class="col">
+            <div class="d-flex align-items-center justify-content-center edit-post-div">
+                <div class="p-4 m-2 shadow rounded-2">
+                    <div class="text-center">
+                        <h2 n:block=title class="p-1">Úprava příspěvku</h2>
+                    </div>
+                    <form n:name=postForm class="form">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th class="p-1">
+                                    <label n:name=title>
+                                        Název díla:
+                                    </label>
+                                </th>
+                                <td class="p-1">
+                                    <input n:name=title size=20 autofocus>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="p-1">
+                                    <label n:name=description>
+                                        Popis:
+                                    </label>
+                                </th>
+                                <td class="p-1 form-ta">
+                                    <textarea n:name=description></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label class="p-1">
+                                        Původní obrázek:
+                                    </label>
+                                </th>
+                                <td class="p-1">
+                                    <img src="{$basePath}/upload/{$post->image}" class="form-image">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label n:name=image class="p-1">
+                                        Nový obrázek:
+                                    </label>
+                                </th>
+                                <td class="p-1">
+                                    <input n:name=image>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-center mt-3">
+                            <input n:name=send class="button" type="submit" value="Upravit příspěvek">
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
+
+        <div class="col">
+            <div class="">
+                <a n:href="Edit:edit $post->id+1" style="position: fixed" class="end-0">
+                    <img src="{$basePath}/icons/arrow.svg" style="width: 4vw; margin-top: 40vh; margin-right: 5vw;">
+                </a>
+            </div>
+        </div>
+
     </div>
 </div>

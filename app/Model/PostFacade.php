@@ -25,11 +25,17 @@ final class PostFacade
             ->order('created_at DESC');
     }
 
-    public function getUserData()
+    public function getPostCount()
     {
         return $this->database
-            ->table('user');
+            ->table('posts')
+            ->count('id');
     }
 
+    public function getSettings()
+    {
+        return $this->database
+            ->table('settings');
+    }
 
 }
