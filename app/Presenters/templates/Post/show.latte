@@ -1,16 +1,42 @@
 {block content}
 
-<h1 n:block=title class="p-3 text-center">{$post->title}</h1>
-
 <div class="container">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-6">
-            <div class="d-flex align-items-center justify-content-center post-image-box">
-                <img src="{$basePath}/upload/{$post->image}" class="img-fluid post-image">
+    <div class="row" style="column-count: 3">
+
+        <div class="col-1 start-0" style="position: fixed;">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <a n:href="Post:show $post->id-1" style="right: 100%">
+                            <img src="{$basePath}/icons/arrow.svg" style="position: fixed; width: 4vw; margin-top: 40vh; transform: rotate(180deg);">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="text-center p-3 post-description">
-        <h4>{$post->description}</h4>
+
+        <div class="col">
+            <h1 n:block=title class="p-3 text-center">{$post->title}</h1>
+
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-center post-image-box">
+                            <img src="{$basePath}/upload/{$post->image}" class="img-fluid post-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-3 post-description">
+                    <h4>{$post->description}</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-1 end-0" style="position: fixed;">
+            <a n:href="Post:show $post->id+1">
+                <img src="{$basePath}/icons/arrow.svg" style="position: fixed; width: 4vw; margin-top: 40vh;">
+            </a>
+        </div>
+
     </div>
 </div>
