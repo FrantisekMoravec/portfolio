@@ -7,6 +7,29 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-6">
+                        <h4>{$post->id}/{$postCount}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col"></div>
+
+        <div class="col-1 end-0" style="position: fixed;">
+            <a n:href="Home:default">
+                <img src="{$basePath}/icons/x.svg" style="width: 4vw;">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="column-count: 3">
+
+        <div class="col-1 start-0" style="position: fixed;">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-6">
                         <a n:href="Post:show $post->id-1" style="right: 100%">
                             <img src="{$basePath}/icons/arrow.svg" style="position: fixed; width: 4vw; margin-top: 40vh; transform: rotate(180deg);">
                         </a>
